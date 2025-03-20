@@ -76,6 +76,17 @@ class Pet{
             }
     }
 }
+class Activity{
+    nap(){
+
+    }
+    play() {
+
+    }
+    eat() {
+        
+    }
+}
 
 done.addEventListener("click", () => {
     let tamagotchiName = document.querySelector("#tamagotchiName").value;
