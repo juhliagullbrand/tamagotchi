@@ -44,11 +44,41 @@ body {
 .mode-column{
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: space-evenly;
 }
 
 .name{
     display: flex;
     justify-content: center;
+}
+
+progress[value] {
+    --w: 70px;
+    --color: linear-gradient(90deg,#B6E1F6,#C2B0FF);
+    --background: lightgrey;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    width: var(--w);
+    border-radius: 10em;
+    background: var(--background);
+}
+progress[value]::-webkit-progress-bar {
+    border-radius: 10em;
+    background: var(--background);
+}
+progress[value]::-webkit-progress-value {
+    border-radius: 10em;
+    background: var(--color);
+}
+progress[value]::-moz-progress-bar {
+    border-radius: 10em;
+    background: var(--color);
+}
+
+label {
+    font-size: 14px;
+    font-weight: lighter;
 }
