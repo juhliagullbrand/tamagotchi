@@ -1,8 +1,54 @@
 body {
     height: 99vh;
     background: linear-gradient(0.48turn, #B6E1F6 20%, #C2B0FF 60%);
+    display: flex;
+    justify-content: center;
 }
 
 .container{
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.tama{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tamaContainer{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20%;
+}
+
+.tama-1{
+    background: url("/image/tamagotchi-1svg.svg") no-repeat;
+}
+.tama-2{
+    background: url("/image/tamagotchi-2.png") no-repeat;
+}
+.tama-3{
+    background: url("/image/tamagotchi-3.png") no-repeat;
+}
+.tama-4{
+    background: url("/image/tamagotchi-4.png") no-repeat;
+}
+
+.mode-column{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.name{
+    display: flex;
+    justify-content: center;
 }
