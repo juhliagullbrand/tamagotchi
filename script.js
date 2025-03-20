@@ -1,4 +1,5 @@
-
+let done = document.querySelector("#done");
+let counter = 1;
 class Pet{
     static animalTypes = ["Cow","Pig","Cat","Rabbit"];
 
@@ -10,51 +11,76 @@ class Pet{
         this.happiness = 50;
     }
 
-    static generatePet(name,animalType) {
-        let pet = new Pet(name,animalType);
-        document.querySelector(".name").innerHTML = pet.name;
-
+    static generatePet(name,animal) {
+        let pet = new Pet(name,animal);
         let img = document.createElement("img");
-        let tamaDiv = document.querySelector(".tama");
+        let idName = "#tama" + counter;
+        let tamaDiv = document.querySelector(idName);
 
-        switch (pet.animalType) {
-            case "Cow":
+        tamaDiv.querySelector(".name").innerHTML = pet.name;
+        
+        switch (counter) {
+            case 1:
                 tamaDiv.classList.add("tama-1");
-                img.src = "/image/image-cow.png";
-                document.querySelector(".animalDiv").append(img);
+                img.src = this.generateAnimalImg(animal);
+                tamaDiv.querySelector(".animalDiv").append(img);
             break;
-            case "Pig":
+            case 2:
                 tamaDiv.classList.add("tama-2");
-                img.src = "/image/image-pig.png";
-                document.querySelector(".animalDiv").append(img);
+                img.src = this.generateAnimalImg(animal);;
+                tamaDiv.querySelector(".animalDiv").append(img);
             break;
-            case "Cat":
+            case 3:
                 tamaDiv.classList.add("tama-3");
-                img.src = "/image/image-cat.png";
-                document.querySelector(".animalDiv").append(img);
+                img.src = this.generateAnimalImg(animal);;
+                tamaDiv.querySelector(".animalDiv").append(img);
             break;
-            case "Rabbit":
+            case 4:
                 tamaDiv.classList.add("tama-4");
-                img.src = "/image/image-rabbit.png";
-                document.querySelector(".animalDiv").append(img);
+                img.src = this.generateAnimalImg(animal);;
+                tamaDiv.querySelector(".animalDiv").append(img);
             break;
             default:
                 console.error(`Det finns inget sådant djur`);
         }
-        
-        document.querySelector(".mode-column").innerHTML = `
+
+        tamaDiv.querySelector(".mode-column").innerHTML = `
         <label>Energy<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
         <label>Fullness<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
         <label>Happines<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
-        document.querySelector(".buttonContainer").innerHTML =`
+        tamaDiv.querySelector(".buttonContainer").innerHTML =`
         <button>NAP</button>
         <button>EAT</button>
         <button>PLAY</button>
         `
-
+        counter++;
         return pet;
+    }
+    static generateAnimalImg(animal){
+        switch (animal) {
+                case "Cow":
+                    return "/image/image-cow.png";
+                break;
+                case "Pig":
+                    return "/image/image-pig.png";
+                break;
+                case "Cat":
+                    return "/image/image-cat.png";
+                break;
+                case "Rabbit":
+                    return "/image/image-rabbit.png";
+                break;
+                default:
+                    console.error(`Det finns inget sådant djur`);
+            }
     }
 }
 
-Pet.generatePet("Mamma-Mu","Cow");
+done.addEventListener("click", () => {
+    let tamagotchiName = document.querySelector("#tamagotchiName").value;
+    let animal = document.querySelector("#animal").value;
+
+    Pet.generatePet(tamagotchiName,animal)
+});
+
