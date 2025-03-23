@@ -51,10 +51,12 @@ class Pet{
         tamaDiv.querySelector(".buttonContainer").innerHTML =`
         <button class="napBtn">NAP</button>
         <button>EAT</button>
-        <button>PLAY</button>
+        <button class="playBtn">PLAY</button>
         `
         document.querySelector(".napBtn").addEventListener("click", () => {
             Activity.nap(pet,tamaDiv)});
+        document.querySelector(".playBtn").addEventListener("click", () => {
+            Activity.play(pet,tamaDiv)});
 
         counter++;
         return pet;
@@ -89,8 +91,15 @@ class Activity{
         <label>Happines<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
     }
-    static play(pet) {
-        
+    static play(pet,tamaDiv){
+        pet.energy -= 10;
+        pet.fullness -= 10;
+        pet.happiness += 30;
+        tamaDiv.querySelector(".mode-column").innerHTML = `
+        <label>Energy<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
+        <label>Fullness<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
+        <label>Happines<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
+        `;
     }
     static eat(pet) {
         
