@@ -44,19 +44,21 @@ class Pet{
                 console.error(`Det finns inget sådant djur`);
         } 
         tamaDiv.querySelector(".mode-column").innerHTML = `
-        <label>Energy<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
-        <label>Fullness<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
-        <label>Happines<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
+        <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
+        <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
+        <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
         tamaDiv.querySelector(".buttonContainer").innerHTML =`
         <button class="napBtn">NAP</button>
-        <button>EAT</button>
+        <button class="eatBtn">EAT</button>
         <button class="playBtn">PLAY</button>
         `
         document.querySelector(".napBtn").addEventListener("click", () => {
             Activity.nap(pet,tamaDiv)});
         document.querySelector(".playBtn").addEventListener("click", () => {
             Activity.play(pet,tamaDiv)});
+        document.querySelector(".eatBtn").addEventListener("click", () => {
+            Activity.eat(pet,tamaDiv)});
 
         counter++;
         return pet;
@@ -86,9 +88,9 @@ class Activity{
         pet.fullness -= 10;
         pet.happiness -= 10;
         tamaDiv.querySelector(".mode-column").innerHTML = `
-        <label>Energy<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
-        <label>Fullness<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
-        <label>Happines<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
+        <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
+        <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
+        <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
     }
     static play(pet,tamaDiv){
@@ -96,13 +98,20 @@ class Activity{
         pet.fullness -= 10;
         pet.happiness += 30;
         tamaDiv.querySelector(".mode-column").innerHTML = `
-        <label>Energy<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
-        <label>Fullness<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
-        <label>Happines<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
+        <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
+        <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
+        <label>Happines ${pet.happiness} <progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
     }
-    static eat(pet) {
-        
+    static eat(pet,tamaDiv) {
+        pet.energy -= 15;
+        pet.fullness += 30;
+        pet.happiness += 5;
+        tamaDiv.querySelector(".mode-column").innerHTML = `
+        <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
+        <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
+        <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
+        `;
     }
 }
 
