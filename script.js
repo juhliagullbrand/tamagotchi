@@ -42,18 +42,20 @@ class Pet{
             break;
             default:
                 console.error(`Det finns inget sådant djur`);
-        }
-
+        } 
         tamaDiv.querySelector(".mode-column").innerHTML = `
         <label>Energy<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
         <label>Fullness<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
         <label>Happines<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
         tamaDiv.querySelector(".buttonContainer").innerHTML =`
-        <button>NAP</button>
+        <button class="napBtn">NAP</button>
         <button>EAT</button>
         <button>PLAY</button>
         `
+        document.querySelector(".napBtn").addEventListener("click", () => {
+            Activity.nap(pet,tamaDiv)});
+
         counter++;
         return pet;
     }
@@ -76,6 +78,24 @@ class Pet{
             }
     }
 }
+class Activity{
+    static nap(pet,tamaDiv){
+        pet.energy += 40;
+        pet.fullness -= 10;
+        pet.happiness -= 10;
+        tamaDiv.querySelector(".mode-column").innerHTML = `
+        <label>Energy<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
+        <label>Fullness<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
+        <label>Happines<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
+        `;
+    }
+    static play(pet) {
+        
+    }
+    static eat(pet) {
+        
+    }
+}
 
 done.addEventListener("click", () => {
     let tamagotchiName = document.querySelector("#tamagotchiName").value;
@@ -83,4 +103,3 @@ done.addEventListener("click", () => {
 
     Pet.generatePet(tamagotchiName,animal)
 });
-
