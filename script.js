@@ -81,12 +81,24 @@ class Pet{
                     console.error(`Det finns inget sådant djur`);
             }
     }
+    minStatus(tamaDiv) {
+        this.energy = Math.max(0, this.energy);
+        this.fullness = Math.max(0, this.fullness);
+        this.happiness = Math.max(0, this.happiness);
+
+        if (this.energy === 0 || this.fullness === 0 || this.happiness === 0) {
+            tamaDiv.remove();
+        }
+    
+    }
 }
 class Activity{
     static nap(pet,tamaDiv){
         pet.energy += 40;
         pet.fullness -= 10;
         pet.happiness -= 10;
+        pet.minStatus(tamaDiv);
+
         tamaDiv.querySelector(".mode-column").innerHTML = `
         <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
@@ -97,11 +109,11 @@ class Activity{
         chatBubble.innerHTML = `You took a nap with ${pet.name}`;
         tamaDiv.querySelector(".chatContainer").append(chatBubble);
     }
-    
     static play(pet,tamaDiv){
         pet.energy -= 10;
         pet.fullness -= 10;
         pet.happiness += 30;
+        pet.minStatus(tamaDiv);
         tamaDiv.querySelector(".mode-column").innerHTML = `
         <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
@@ -116,6 +128,7 @@ class Activity{
         pet.energy -= 15;
         pet.fullness += 30;
         pet.happiness += 5;
+        pet.minStatus(tamaDiv);
         tamaDiv.querySelector(".mode-column").innerHTML = `
         <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
@@ -127,6 +140,7 @@ class Activity{
         tamaDiv.querySelector(".chatContainer").append(chatBubble);
     }
 }
+
 
 done.addEventListener("click", () => {
     let tamagotchiName = document.querySelector("#tamagotchiName").value;
