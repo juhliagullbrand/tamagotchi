@@ -53,11 +53,11 @@ class Pet{
         <button class="eatBtn">EAT</button>
         <button class="playBtn">PLAY</button>
         `
-        document.querySelector(".napBtn").addEventListener("click", () => {
+        tamaDiv.querySelector(".napBtn").addEventListener("click", () => {
             Activity.nap(pet,tamaDiv)});
-        document.querySelector(".playBtn").addEventListener("click", () => {
+        tamaDiv.querySelector(".playBtn").addEventListener("click", () => {
             Activity.play(pet,tamaDiv)});
-        document.querySelector(".eatBtn").addEventListener("click", () => {
+        tamaDiv.querySelector(".eatBtn").addEventListener("click", () => {
             Activity.eat(pet,tamaDiv)});
 
         counter++;
