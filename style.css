@@ -62,6 +62,16 @@ body {
     text-transform: uppercase;
 }
 
+.historyBubble{
+    background-color: #F4E9F6;
+    color: #A969C7;
+    padding: 12px 18px;
+    border-radius: 8px;
+    max-width: 250px;
+    min-width: 100px;
+    position: relative;
+}
+
 .mode-column{
     display: flex;
     flex-direction: row;
