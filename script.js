@@ -105,20 +105,10 @@ class Activity{
         <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
 
-        let chatBubble = document.createElement("div");
-        chatBubble.classList.add("chatBubble");
-        chatBubble.innerHTML = `You took a nap with ${pet.name}`;
-        tamaDiv.querySelector(".chatContainer").append(chatBubble);
-
-        let historyBubble = document.createElement("div");
-        historyBubble.classList.add("historyBubble");
-        historyBubble.innerHTML = `
-        <ul>
-        <li>You took a nap</li>
-        </ul>
-        `;
-        tamaDiv.querySelector(".historyContainer").append(historyBubble);
+        Activity.chatBubble(pet,tamaDiv, "nap");
+        Activity.historyBubble(pet,tamaDiv,"nap");
     }
+
     static play(pet,tamaDiv){
         pet.energy -= 10;
         pet.fullness -= 10;
@@ -129,20 +119,11 @@ class Activity{
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
         <label>Happines ${pet.happiness} <progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
-        let chatBubble = document.createElement("div");
-        chatBubble.classList.add("chatBubble");
-        chatBubble.innerHTML = `You played with ${pet.name}`;
-        tamaDiv.querySelector(".chatContainer").append(chatBubble);
 
-        let historyBubble = document.createElement("div");
-        historyBubble.classList.add("historyBubble");
-        historyBubble.innerHTML = `
-        <ul>
-        <li>You've played</li>
-        </ul>
-        `;
-        tamaDiv.querySelector(".historyContainer").append(historyBubble);
+        Activity.chatBubble(pet,tamaDiv, "play");
+        Activity.historyBubble(pet,tamaDiv,"play");
     }
+
     static eat(pet,tamaDiv) {
         pet.energy -= 15;
         pet.fullness += 30;
@@ -153,20 +134,65 @@ class Activity{
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
         <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
-        let chatBubble = document.createElement("div");
-        chatBubble.classList.add("chatBubble");
-        chatBubble.innerHTML = `You fed ${pet.name}`;
-        tamaDiv.querySelector(".chatContainer").append(chatBubble);
 
-        let historyBubble = document.createElement("div");
-        historyBubble.classList.add("historyBubble");
-        historyBubble.innerHTML = `
-        <ul>
-        <li>You've ate</li>
-        </ul>
-        `;
-        tamaDiv.querySelector(".historyContainer").append(historyBubble);
+        Activity.chatBubble(pet,tamaDiv,"eat");
+        Activity.historyBubble(pet,tamaDiv,"eat");
     }
+
+    static chatBubble (pet,tamaDiv,action){
+        let chatBubble = tamaDiv.querySelector(".chatBubble");
+        
+        if(!chatBubble){
+            chatBubble = document.createElement("div");
+            chatBubble.classList.add("chatBubble");
+            tamaDiv.querySelector(".chatContainer").append(chatBubble);
+        }
+
+        switch (action) {
+        case "nap":
+            chatBubble.innerHTML = `You took a nap with ${pet.name}`;
+            break;
+        case "play":
+            chatBubble.innerHTML = `You played with ${pet.name}`;
+            break;
+        case "eat":
+            chatBubble.innerHTML = `You fed ${pet.name}`;
+            break;
+        default:
+            chatBubble.innerHTML = "";
+        }
+        
+    }
+
+    static historyBubble (pet,tamaDiv,action){
+        let historyBubble = tamaDiv.querySelector(".historyBubble");
+
+        if(!historyBubble){
+            historyBubble = document.createElement("div");
+            historyBubble.classList.add("historyBubble");
+            tamaDiv.querySelector(".historyContainer").append(historyBubble);
+
+            let ul = document.createElement("ul");
+            historyBubble.append(ul);
+        }
+
+        let ul = historyBubble.querySelector("ul");
+        let li = document.createElement("li");
+
+        switch (action) {
+            case "nap":
+                li.innerText = `You took a nap with ${pet.name}`;
+                break;
+            case "play":
+                li.innerText = `You played with ${pet.name}`;
+                break;
+            case "eat":
+                li.innerText = `You fed ${pet.name}`;
+                break;
+        }
+        ul.appendChild(li);
+    }
+    
 }
 
 
