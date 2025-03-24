@@ -92,7 +92,12 @@ class Activity{
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
         <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
+        let chatBubble = document.createElement("div");
+        chatBubble.classList.add("chatBubble");
+        chatBubble.innerHTML = `You took a nap with ${pet.name}`;
+        tamaDiv.querySelector(".chatContainer").append(chatBubble);
     }
+    
     static play(pet,tamaDiv){
         pet.energy -= 10;
         pet.fullness -= 10;
@@ -102,6 +107,10 @@ class Activity{
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
         <label>Happines ${pet.happiness} <progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
+        let chatBubble = document.createElement("div");
+        chatBubble.classList.add("chatBubble");
+        chatBubble.innerHTML = `You played with ${pet.name}`;
+        tamaDiv.querySelector(".chatContainer").append(chatBubble);
     }
     static eat(pet,tamaDiv) {
         pet.energy -= 15;
@@ -112,6 +121,10 @@ class Activity{
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
         <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
+        let chatBubble = document.createElement("div");
+        chatBubble.classList.add("chatBubble");
+        chatBubble.innerHTML = `You fed ${pet.name}`;
+        tamaDiv.querySelector(".chatContainer").append(chatBubble);
     }
 }
 

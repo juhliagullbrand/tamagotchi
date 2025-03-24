@@ -35,7 +35,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20%;
 }
 
 .tama-1{
@@ -49,6 +48,18 @@ body {
 }
 .tama-4{
     background: url("/image/tamagotchi-4.png") no-repeat;
+}
+
+.chatBubble{
+    background-color: #F4E9F6;
+    color: #A969C7;
+    padding: 12px 18px;
+    border-radius: 18px 18px 0px 18px;
+    max-width: 250px;
+    min-width: 100px;
+    position: relative;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .mode-column{
