@@ -28,6 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .tamaContainer{
@@ -35,6 +36,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px solid darkblue;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.napBtn, .eatBtn, .playBtn {
+    height: 45px;
+    width: 45px;
+    background-color: #FFB65A;
+    border-radius: 50%;
+    border: none;
+    display: inline-block;
+    box-shadow: 3px 3px 3px #F99564;
 }
 
 .tama-1{

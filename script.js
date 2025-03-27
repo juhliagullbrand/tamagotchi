@@ -15,7 +15,7 @@ class Pet{
         let pet = new Pet(name,animal);
         let idName = "#tama" + counter;
         let tamaDiv = document.querySelector(idName);
-        pet.startTimer(tamaDiv);
+        // pet.startTimer(tamaDiv);
         let img = document.createElement("img");
 
         tamaDiv.querySelector(".name").innerHTML = pet.name;
@@ -50,9 +50,9 @@ class Pet{
         <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
         `;
         tamaDiv.querySelector(".buttonContainer").innerHTML =`
-        <button class="napBtn">NAP</button>
-        <button class="eatBtn">EAT</button>
-        <button class="playBtn">PLAY</button>
+        <button class="napBtn"><img src="/image/moon-solid.svg" alt="nap" height="20"></button>
+        <button class="eatBtn"><img src="/image/utensils-solid.svg" alt="eat" height="20"></button>
+        <button class="playBtn"><img src="/image/gamepad-solid.svg" alt="game" height="20"></button>
         `
         tamaDiv.querySelector(".napBtn").addEventListener("click", () => {
             Activity.nap(pet,tamaDiv)});
@@ -94,21 +94,21 @@ class Pet{
 
 
     }
-    startTimer(tamaDiv){
-        setInterval(() => {
-            this.energy -= 15;
-            this.fullness -= 15;
-            this.happiness -= 15;
+    // startTimer(tamaDiv){
+    //     setInterval(() => {
+    //         this.energy -= 15;
+    //         this.fullness -= 15;
+    //         this.happiness -= 15;
 
-            this.minStatus(tamaDiv);
+    //         this.minStatus(tamaDiv);
 
-            tamaDiv.querySelector(".mode-column").innerHTML = `
-            <label>Energy ${this.energy}<progress value="${this.energy}" max="100"></progress></label>
-            <label>Fullness ${this.fullness}<progress value="${this.fullness}" max="100"></progress></label>
-            <label>Happiness ${this.happiness}<progress value="${this.happiness}" max="100"></progress></label>
-        `;
-        },10000);
-    }
+    //         tamaDiv.querySelector(".mode-column").innerHTML = `
+    //         <label>Energy ${this.energy}<progress value="${this.energy}" max="100"></progress></label>
+    //         <label>Fullness ${this.fullness}<progress value="${this.fullness}" max="100"></progress></label>
+    //         <label>Happiness ${this.happiness}<progress value="${this.happiness}" max="100"></progress></label>
+    //     `;
+    //     },10000);
+    // }
 }
 class Activity{
     static nap(pet,tamaDiv){
