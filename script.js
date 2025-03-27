@@ -13,9 +13,10 @@ class Pet{
 
     static generatePet(name,animal) {
         let pet = new Pet(name,animal);
-        let img = document.createElement("img");
         let idName = "#tama" + counter;
         let tamaDiv = document.querySelector(idName);
+        pet.startTimer(tamaDiv);
+        let img = document.createElement("img");
 
         tamaDiv.querySelector(".name").innerHTML = pet.name;
         
@@ -90,6 +91,23 @@ class Pet{
             tamaDiv.remove();
         }
     
+
+
+    }
+    startTimer(tamaDiv){
+        setInterval(() => {
+            this.energy -= 15;
+            this.fullness -= 15;
+            this.happiness -= 15;
+
+            this.minStatus(tamaDiv);
+
+            tamaDiv.querySelector(".mode-column").innerHTML = `
+            <label>Energy ${this.energy}<progress value="${this.energy}" max="100"></progress></label>
+            <label>Fullness ${this.fullness}<progress value="${this.fullness}" max="100"></progress></label>
+            <label>Happiness ${this.happiness}<progress value="${this.happiness}" max="100"></progress></label>
+        `;
+        },10000);
     }
 }
 class Activity{
