@@ -1,3 +1,8 @@
+* {
+    font-family: "Chewy", system-ui;
+    /* font-weight: 400; */
+    /* font-style: normal; */
+}
 body {
     height: 99vh;
     background: linear-gradient(0.48turn, #B6E1F6 20%, #C2B0FF 60%);
@@ -49,6 +54,7 @@ body {
     border: none;
     display: inline-block;
     box-shadow: 3px 3px 3px #F99564;
+    cursor: pointer;
 }
 
 .tama-1{
