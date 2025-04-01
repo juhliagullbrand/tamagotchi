@@ -1,3 +1,4 @@
+
 let done = document.querySelector("#done");
 let counter = 1;
 class Pet{
@@ -24,21 +25,25 @@ class Pet{
             case 1:
                 tamaDiv.classList.add("tama-1");
                 img.src = this.generateAnimalImg(animal);
+                img.classList.add("animal-img");
                 tamaDiv.querySelector(".animalDiv").append(img);
             break;
             case 2:
                 tamaDiv.classList.add("tama-2");
-                img.src = this.generateAnimalImg(animal);;
+                img.src = this.generateAnimalImg(animal);
+                img.classList.add("animal-img");
                 tamaDiv.querySelector(".animalDiv").append(img);
             break;
             case 3:
                 tamaDiv.classList.add("tama-3");
-                img.src = this.generateAnimalImg(animal);;
+                img.src = this.generateAnimalImg(animal);
+                img.classList.add("animal-img");
                 tamaDiv.querySelector(".animalDiv").append(img);
             break;
             case 4:
                 tamaDiv.classList.add("tama-4");
-                img.src = this.generateAnimalImg(animal);;
+                img.src = this.generateAnimalImg(animal);
+                img.classList.add("animal-img");
                 tamaDiv.querySelector(".animalDiv").append(img);
             break;
             default:
@@ -67,16 +72,16 @@ class Pet{
     static generateAnimalImg(animal){
         switch (animal) {
                 case "Cow":
-                    return "/image/image-cow.png";
+                    return "/image/cow.png";
                 break;
                 case "Pig":
-                    return "/image/image-pig.png";
+                    return "/image/pig.png";
                 break;
                 case "Cat":
-                    return "/image/image-cat.png";
+                    return "/image/cat.png";
                 break;
                 case "Rabbit":
-                    return "/image/image-rabbit.png";
+                    return "/image/rabbit.png";
                 break;
                 default:
                     console.error(`Det finns inget sådant djur`);
