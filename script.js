@@ -1,4 +1,3 @@
-
 let done = document.querySelector("#done");
 let counter = 1;
 class Pet{
@@ -16,7 +15,7 @@ class Pet{
         let pet = new Pet(name,animal);
         let idName = "#tama" + counter;
         let tamaDiv = document.querySelector(idName);
-        // pet.startTimer(tamaDiv);
+        pet.startTimer(tamaDiv);
         let img = document.createElement("img");
 
         tamaDiv.querySelector(".name").innerHTML = pet.name;
@@ -46,8 +45,6 @@ class Pet{
                 img.classList.add("animal-img");
                 tamaDiv.querySelector(".animalDiv").append(img);
             break;
-            default:
-                console.error(`Det finns inget sådant djur`);
         } 
         tamaDiv.querySelector(".mode-column").innerHTML = `
         <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
@@ -57,8 +54,8 @@ class Pet{
         tamaDiv.querySelector(".buttonContainer").innerHTML =`
         <button class="napBtn"><img src="/image/moon-solid.svg" alt="nap" height="20"></button>
         <button class="eatBtn"><img src="/image/utensils-solid.svg" alt="eat" height="20"></button>
-        <button class="playBtn"><img src="/image/gamepad-solid.svg" alt="game" height="20"></button>
-        `
+        <button class="playBtn"><img src="/image/gamepad-solid.svg" alt="game" height="20"></button>`
+        
         tamaDiv.querySelector(".napBtn").addEventListener("click", () => {
             Activity.nap(pet,tamaDiv)});
         tamaDiv.querySelector(".playBtn").addEventListener("click", () => {
@@ -83,8 +80,6 @@ class Pet{
                 case "Rabbit":
                     return "/image/rabbit.png";
                 break;
-                default:
-                    console.error(`Det finns inget sådant djur`);
             }
     }
     minStatus(tamaDiv) {
@@ -94,26 +89,27 @@ class Pet{
 
         if (this.energy === 0 || this.fullness === 0 || this.happiness === 0) {
             tamaDiv.remove();
+            alert (`${this.name} died!`);
         }
     
 
 
     }
-    // startTimer(tamaDiv){
-    //     setInterval(() => {
-    //         this.energy -= 15;
-    //         this.fullness -= 15;
-    //         this.happiness -= 15;
+    startTimer(tamaDiv){
+        setInterval(() => {
+            this.energy -= 15;
+            this.fullness -= 15;
+            this.happiness -= 15;
 
-    //         this.minStatus(tamaDiv);
+            this.minStatus(tamaDiv);
 
-    //         tamaDiv.querySelector(".mode-column").innerHTML = `
-    //         <label>Energy ${this.energy}<progress value="${this.energy}" max="100"></progress></label>
-    //         <label>Fullness ${this.fullness}<progress value="${this.fullness}" max="100"></progress></label>
-    //         <label>Happiness ${this.happiness}<progress value="${this.happiness}" max="100"></progress></label>
-    //     `;
-    //     },10000);
-    // }
+            tamaDiv.querySelector(".mode-column").innerHTML = `
+            <label>Energy ${this.energy}<progress value="${this.energy}" max="100"></progress></label>
+            <label>Fullness ${this.fullness}<progress value="${this.fullness}" max="100"></progress></label>
+            <label>Happiness ${this.happiness}<progress value="${this.happiness}" max="100"></progress></label>`
+        ;
+        },10000);
+    }
 }
 class Activity{
     static nap(pet,tamaDiv){
@@ -125,8 +121,8 @@ class Activity{
         tamaDiv.querySelector(".mode-column").innerHTML = `
         <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
-        <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
-        `;
+        <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>`
+        ;
 
         Activity.chatBubble(pet,tamaDiv, "nap");
         Activity.historyBubble(pet,tamaDiv,"nap");
@@ -140,8 +136,8 @@ class Activity{
         tamaDiv.querySelector(".mode-column").innerHTML = `
         <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
-        <label>Happines ${pet.happiness} <progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
-        `;
+        <label>Happines ${pet.happiness} <progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>`
+        ;
 
         Activity.chatBubble(pet,tamaDiv, "play");
         Activity.historyBubble(pet,tamaDiv,"play");
@@ -155,8 +151,8 @@ class Activity{
         tamaDiv.querySelector(".mode-column").innerHTML = `
         <label>Energy ${pet.energy}<progress id="${pet.name}-progress" value="${pet.energy}" max="100"></progress></label>
         <label>Fullness ${pet.fullness}<progress id="${pet.name}-progress" value="${pet.fullness}" max="100"></progress></label>
-        <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>
-        `;
+        <label>Happines ${pet.happiness}<progress id="${pet.name}-progress" value="${pet.happiness}" max="100"></progress></label>`
+        ;
 
         Activity.chatBubble(pet,tamaDiv,"eat");
         Activity.historyBubble(pet,tamaDiv,"eat");

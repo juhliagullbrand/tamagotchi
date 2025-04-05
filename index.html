@@ -14,7 +14,13 @@
     <div class="formContainer">
         <h2>Create Tamagotchi</h2>
         <div class="inputContainer">
-            <input type="text" id="tamagotchiName">
+            <select name="name" id="tamagotchiName">
+                <option value="" disabled selected>Tamagotchi name</option>
+                <option value="Kajsa">Kajsa</option>
+                <option value="Pelle">Pelle</option>
+                <option value="Kalle">Kalle</option>
+                <option value="Knut">Knut</option>
+            </select>
             <select name="animal" id="animal">
                 <option value="" disabled selected>Animal</option>
                 <option value="Cow">Cow</option>
@@ -22,9 +28,8 @@
                 <option value="Cat">Cat</option>
                 <option value="Rabbit">Rabbit</option>
             </select>
+            <button id="done">Done</button>
         </div>
-        
-        <button id="done">Done</button>
     </div>
     <div class="container">
         <div class="tama" id="tama1">
@@ -32,9 +37,11 @@
             </div>
             <div class="tamaContainer">
                 <p class="name"></p>
-                <div class="mode-column"></div>
-                <div class="animalDiv"></div>
-                <div class="buttonContainer"></div>
+                <div class="insideTama">
+                    <div class="mode-column"></div>
+                    <div class="animalDiv"></div>
+                    <div class="buttonContainer"></div>
+                </div>
             </div>
             <div class="historyContainer"></div>
         </div>

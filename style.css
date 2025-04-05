@@ -1,13 +1,31 @@
 * {
     font-family: "Chewy", system-ui;
-    /* font-weight: 400; */
-    /* font-style: normal; */
 }
+
 body {
-    height: 99vh;
+    height: 100vh;
     background: linear-gradient(0.48turn, #B6E1F6 20%, #C2B0FF 60%);
     display: flex;
     flex-direction: column;
+}
+
+h2{
+    color: #7430C9;
+}
+
+#tamagotchiName, #animal, #done, option, ::placeholder{
+    border: none;
+    border-radius: 20rem;
+    height: 3rem;
+    width: 10rem;
+    text-align: center;
+    background: #E2E1FB;
+    color:#7430C9
+} 
+
+#done:hover{
+    background:  #a493dc;
+    cursor: pointer;
 }
 
 .container{
@@ -24,6 +42,8 @@ body {
 }
 .inputContainer{
     display: flex;
+    justify-content: space-between;
+    width: 40%;
 }
 
 .tama{
@@ -37,8 +57,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid darkblue;
-    border-radius: 1rem;
+    position: relative;
     padding: 4rem;
 }
 
@@ -84,6 +103,10 @@ body {
     width: 80px;  
     height: auto;
 }
+
+.chatContainer {
+    position: absolute;
+}
 .chatBubble{
     background-color: #F4E9F6;
     color: #A969C7;
@@ -91,21 +114,28 @@ body {
     border-radius: 18px 18px 0px 18px;
     max-width: 250px;
     min-width: 100px;
-    position: relative;
     font-weight: bold;
     text-transform: uppercase;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     padding: 15px;
 }
 
+.historyContainer {
+    border-radius: 8px;
+    max-width: 250px;
+    min-width: 100px;
+    position: absolute;
+}
+
 .historyBubble{
     background-color: #F4E9F6;
     color: #A969C7;
     padding: 12px 18px;
-    border-radius: 8px;
+    border-radius: 18px 0px 18px 18px;
     max-width: 250px;
     min-width: 100px;
-    position: relative;
+    font-weight: bold;
+    text-transform: uppercase;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     padding: 15px;
 }
@@ -119,6 +149,10 @@ body {
 .name{
     display: flex;
     justify-content: center;
+    font-size: xx-large;
+    margin-block-start: 0em;
+    margin-block-end: 0;
+    color: white;
 }
 
 progress[value] {
@@ -146,3 +180,10 @@ label {
     font-size: 14px;
     font-weight: lighter;
 }
+
+.insideTama{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+} 
