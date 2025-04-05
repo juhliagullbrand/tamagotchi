@@ -1,0 +1,189 @@
+* {
+    font-family: "Chewy", system-ui;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(0.48turn, #B6E1F6 20%, #C2B0FF 60%);
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    color: #7430C9;
+}
+
+#tamagotchiName, #animal, #done, option, ::placeholder{
+    border: none;
+    border-radius: 20rem;
+    height: 3rem;
+    width: 10rem;
+    text-align: center;
+    background: #E2E1FB;
+    color:#7430C9
+} 
+
+#done:hover{
+    background:  #a493dc;
+    cursor: pointer;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+}
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+}
+.inputContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.tama{
+    flex: 1 1 250px;
+    max-width: 300px;
+    min-width: 250px;
+}
+
+.tamaContainer{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 4rem;
+}
+
+.napBtn, .eatBtn, .playBtn {
+    width: 35px;  
+    height: 35px;
+    background-color: #FFB65A;
+    border-radius: 50%;
+    border: none;
+    display: inline-block;
+    box-shadow: 3px 3px 3px #F99564;
+    cursor: pointer;
+}
+.napBtn:hover, .eatBtn:hover, .playBtn:hover {
+    background-color: #FF9E3E;
+}
+
+.tama-1{
+    background: url("/image/tamagotchi-1.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.tama-2{
+    background: url("/image/tamagotchi-2.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.tama-3{
+    background: url("/image/tamagotchi-3.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.tama-4{
+    background: url("/image/tamagotchi-4.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.animal-img {
+    width: 80px;  
+    height: auto;
+}
+
+.chatContainer {
+    position: absolute;
+}
+.chatBubble{
+    background-color: #F4E9F6;
+    color: #A969C7;
+    padding: 12px 18px;
+    border-radius: 18px 18px 0px 18px;
+    max-width: 250px;
+    min-width: 100px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+}
+
+.historyContainer {
+    border-radius: 8px;
+    max-width: 250px;
+    min-width: 100px;
+    position: absolute;
+}
+
+.historyBubble{
+    background-color: #F4E9F6;
+    color: #A969C7;
+    padding: 12px 18px;
+    border-radius: 18px 0px 18px 18px;
+    max-width: 250px;
+    min-width: 100px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+}
+
+.mode-column{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    margin-block-start: 0em;
+    margin-block-end: 0;
+    color: white;
+}
+
+progress[value] {
+    --w: 65px;
+    --h: 18px;
+    --color: linear-gradient(90deg,#B6E1F6,#C2B0FF);
+    --background: lightgrey;
+
+    width: var(--w);
+    height: var(--h);
+    border-radius: 10em;
+    background: var(--background);
+    margin: 0.2rem;
+}
+progress[value]::-webkit-progress-bar {
+    border-radius: 10em;
+    background: var(--background);
+}
+progress[value]::-webkit-progress-value {
+    border-radius: 10em;
+    background: var(--color);
+}
+
+label {
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.insideTama{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+} 
