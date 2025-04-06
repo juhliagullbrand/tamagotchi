@@ -89,7 +89,6 @@ class Pet{
 
         if (this.energy === 0 || this.fullness === 0 || this.happiness === 0) {
             tamaDiv.remove();
-            alert (`${this.name} died!`);
         }
     
 
@@ -213,7 +212,6 @@ class Activity{
     }
     
 }
-
 
 done.addEventListener("click", () => {
     let tamagotchiName = document.querySelector("#tamagotchiName").value;
